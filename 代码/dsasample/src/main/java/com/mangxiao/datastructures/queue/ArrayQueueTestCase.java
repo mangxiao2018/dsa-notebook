@@ -8,7 +8,7 @@ import java.util.Scanner;
  * @date:2021-3-11
  */
 public class ArrayQueueTestCase {
-    public static void main(){
+    public static void main(String[] args){
         //创建一个队列
         ArrayQueue queue = new ArrayQueue(3);
         //接收用户输入
