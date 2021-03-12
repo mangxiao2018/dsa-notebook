@@ -64,7 +64,8 @@ public class CircleArray {
     public void showQueue(){
         //判断是否为空
         if (isEmpty()){
-            throw new RuntimeException("队列为空，没有数据");
+            System.out.println("队列为空，没有数据");
+            return;
         }
         //思路:从front开始遍历，遍历多少个元素
         for (int i=front; i<front+size(); i++){
@@ -88,7 +89,5 @@ public class CircleArray {
         }
         return arr[front];
     }
-
-
 
 }
