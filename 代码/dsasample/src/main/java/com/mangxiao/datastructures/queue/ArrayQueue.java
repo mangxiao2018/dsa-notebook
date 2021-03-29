@@ -37,6 +37,7 @@ public class ArrayQueue {
         //判断队列是否满
         if (isFull()){
             System.out.println("队列满，不能再添加数据到队列中..");
+            return;
         }
         //让rear后移
         rear++;
