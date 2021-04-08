@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Stack;
+import java.util.regex.Pattern;
 
 /**
  * @description:逆波兰
@@ -27,4 +28,32 @@ public class ReversePolish {
 
     static Stack<String> stack = new Stack<>();
     static List<String> data = Collections.synchronizedList(new ArrayList<String>());
+
+    /**
+     * \\s+ 匹配任何空白字符，包括空格、制表符、换页符等等, 等价于[ \f\n\r\t\v]
+     * @param s
+     * @return
+     */
+    public static String replaceAllBlank(String s){
+        return s.replaceAll("\\s+","");
+    }
+
+    /**
+     * 判断是不是数字 int double long float
+     * @param s
+     * @return
+     */
+    public static boolean isNumber(String s){
+        Pattern p = Pattern.compile("^[-\\+]?[.\\d]*$");
+        return p.matcher(s).matches();
+    }
+
+    /**
+     * 判断是不是运算符
+     * @param s
+     * @return
+     */
+    public static boolean isSymbol(String s){
+        return s.matches(SYMBOL);
+    }
 }
