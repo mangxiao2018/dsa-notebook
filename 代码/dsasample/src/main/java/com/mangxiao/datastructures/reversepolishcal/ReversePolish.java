@@ -56,4 +56,22 @@ public class ReversePolish {
     public static boolean isSymbol(String s){
         return s.matches(SYMBOL);
     }
+
+    /**
+     * 匹配运算等级
+     * @param s
+     * @return
+     */
+    public static int calcLevel(String s){
+        if ("+".equals(s) || "-".equals(s)){
+            return LEVEL_01;
+        } else if ("*".equals(s) || "/".equals(s)){
+            return LEVEL_02;
+        }
+        return LEVEL_HIGH;
+    }
+
+    public static List<String> doMatch(String s) throws Exception{
+
+    }
 }
