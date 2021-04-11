@@ -72,6 +72,20 @@ public class ReversePolish {
     }
 
     public static List<String> doMatch(String s) throws Exception{
+        return new ArrayList<>();
+    }
+
+    public static Double doCalc(List<String> list){
+        Double d = 0d;
+        if (list == null || list.isEmpty()){
+            return null;
+        }
+
+        if (list.size() == 1){
+            System.out.println(list);
+            d = Double.valueOf(list.get(0));
+            return d;
+        }
 
     }
 }
