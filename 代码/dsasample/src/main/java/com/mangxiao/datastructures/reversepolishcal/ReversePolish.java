@@ -26,7 +26,7 @@ public class ReversePolish {
     static final int LEVEL_02 = 2;
     static final int LEVEL_HIGH = Integer.MAX_VALUE;
 
-    static Stack<String> stack = new Stack<>();
+    static Stack<String> stack = new Stack<String>();
     static List<String> data = Collections.synchronizedList(new ArrayList<String>());
 
     /**
@@ -174,7 +174,7 @@ public class ReversePolish {
         switch (symbol){
             case ADD:
                 result = Double.valueOf(s1) + Double.valueOf(s2);
-                break;;
+                break;
             case MINUS:
                 result = Double.valueOf(s1) - Double.valueOf(s2);
                 break;
