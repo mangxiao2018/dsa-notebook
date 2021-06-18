@@ -98,20 +98,21 @@ public class MiGong {
         }else {
             if (map[i][j] == 0){
                 map[i][j] = 2;
-            }else if (setWay2(map, i - 1, j)){
-                return true;
-            }else if (setWay2(map, i, j + 1)){
-                return true;
-            }else if (setWay2(map, i + 1, j)){
-                return true;
-            }else if (setWay2(map, i, j - 1)){
-                return true;
-            }else{
-                map[i][j] = 3;
+                if (setWay2(map, i - 1, j)){
+                    return true;
+                }else if (setWay2(map, i, j + 1)){
+                    return true;
+                }else if (setWay2(map, i + 1, j)){
+                    return true;
+                }else if (setWay2(map, i, j - 1)){
+                    return true;
+                }else{
+                    map[i][j] = 3;
+                    return false;
+                }
+            }else {
                 return false;
             }
-        }else {
-            return false;
         }
     }
 }
