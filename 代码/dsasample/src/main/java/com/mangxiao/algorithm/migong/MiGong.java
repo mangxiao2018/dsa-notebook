@@ -51,6 +51,13 @@ public class MiGong {
         }
     }
 
+    /**
+     * 第一种行走方式:下->右->上->左
+     * @param map
+     * @param i
+     * @param j
+     * @return
+     */
     public static boolean setWay(int[][] map, int i, int j){
         // 路已找到
         if (map[6][5] == 2){
@@ -75,6 +82,36 @@ public class MiGong {
             }else{
                 return false;
             }
+        }
+    }
+
+    /**
+     *  第二种行走方式:上->右->下->左
+     * @param map
+     * @param i
+     * @param j
+     * @return
+     */
+    public static boolean setWay2(int[][] map, int i, int j){
+        if (map[6][5] == 2){
+            return true;
+        }else {
+            if (map[i][j] == 0){
+                map[i][j] = 2;
+            }else if (setWay2(map, i - 1, j)){
+                return true;
+            }else if (setWay2(map, i, j + 1)){
+                return true;
+            }else if (setWay2(map, i + 1, j)){
+                return true;
+            }else if (setWay2(map, i, j - 1)){
+                return true;
+            }else{
+                map[i][j] = 3;
+                return false;
+            }
+        }else {
+            return false;
         }
     }
 }
