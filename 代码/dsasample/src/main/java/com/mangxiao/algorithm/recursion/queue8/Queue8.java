@@ -1,4 +1,4 @@
-package com.mangxiao.algorithm.queue8;
+package com.mangxiao.algorithm.recursion.queue8;
 
 /**
  * @description:8皇后问题

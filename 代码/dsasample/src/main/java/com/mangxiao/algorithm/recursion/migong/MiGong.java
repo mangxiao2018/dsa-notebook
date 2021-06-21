@@ -1,4 +1,4 @@
-package com.mangxiao.algorithm.migong;
+package com.mangxiao.algorithm.recursion.migong;
 
 import lombok.extern.slf4j.Slf4j;
 
