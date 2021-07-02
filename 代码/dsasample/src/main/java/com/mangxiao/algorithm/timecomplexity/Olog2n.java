@@ -3,7 +3,7 @@ package com.mangxiao.algorithm.timecomplexity;
 import lombok.extern.slf4j.Slf4j;
 
 /**
- * log2^n的代码实现
+ * 时间复杂度为O(log2^n)的代码实现
  */
 @Slf4j(topic = "c.Olog2n")
 public class Olog2n {
