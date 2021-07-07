@@ -169,4 +169,43 @@ public class SingleLinkedList {
             temp = temp.next;
         }
     }
+
+    public Node getNode(){
+        return head;
+    }
+    public static void main(String[] args){
+        Node n1 = new Node(1,"宋江");
+        Node n2 = new Node(2, "卢俊义");
+        Node n3 = new Node(3, "吴用");
+        Node n4 = new Node(4, "林冲");
+        Node n5 = new Node(5, "武松");
+        //添加节点
+        SingleLinkedList sll = new SingleLinkedList();
+        sll.add(n1);
+        sll.add(n4);
+        sll.add(n2);
+        sll.add(n5);
+        sll.add(n3);
+        sll.list();
+        log.debug("---------------------------");
+        //按顺添加节点
+        SingleLinkedList s = new SingleLinkedList();
+        s.addByOrder(n1);
+        s.addByOrder(n4);
+        s.addByOrder(n2);
+        s.addByOrder(n5);
+        s.addByOrder(n3);
+        s.list();
+        log.debug("=================================");
+        //更新节点
+        Node node = new Node(2,"小卢");
+        sll.update(node);
+        sll.list();
+        log.debug("##############################");
+        //删除节点
+        sll.del(1);
+        sll.del(4);
+        sll.list();
+        log.debug("********************************");
+    }
 }
