@@ -18,6 +18,9 @@ public class NodeService {
 
         int size = getSize(sll.getNode());
         log.debug("单链表的有效节点数:" + size);
+
+        Node currentNode = findLastIndexNode(sll.getNode(), 3);
+        log.debug("单链表倒数第K个节点为" + currentNode.toString());
     }
 
     /**
@@ -39,6 +42,29 @@ public class NodeService {
         return size;
     }
 
+    /**
+     * 查找单链表中倒数第K个节点
+     * size - index 位置，就是我们倒数的第K个节点
+     * @param node 原链表
+     * @param index 倒数第K个节点
+     * @return
+     */
+    public static Node findLastIndexNode(Node node, int index){
+        if (node.next == null){
+            log.debug("空链表");
+            return null;
+        }
+        int size = getSize(node);
+        if (index < 0 || index > size){
+            log.debug("指定的位置超出链表范围了");
+            return null;
+        }
+        Node currentNode = node.next;
+        for (int i = 0; i < size - index; i++){
+            currentNode = currentNode.next;
+        }
+        return currentNode;
+    }
     /**
      * 准备一个带数据的单链表
      * @return
