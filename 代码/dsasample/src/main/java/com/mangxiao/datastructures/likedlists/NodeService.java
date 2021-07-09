@@ -21,6 +21,9 @@ public class NodeService {
 
         Node currentNode = findLastIndexNode(sll.getNode(), 3);
         log.debug("单链表倒数第K个节点为" + currentNode.toString());
+
+        //单链表反转
+        reverse(sll.getNode());
     }
 
     /**
@@ -64,6 +67,35 @@ public class NodeService {
             currentNode = currentNode.next;
         }
         return currentNode;
+    }
+
+    /**
+     * 单链表反转
+     * @param head
+     */
+    public static void reverse(Node head){
+        // 如果当前链表为空或只有一个节点，则直接返回无需反转
+        if (head.next == null || head.next.next == null){
+            return;
+        }
+        //定义一个辅助指针，帮我们遍历原来的链表
+        Node currentNode = head.next;
+        //指向当前节点[currentNode]的下一个节点
+        Node nextNode = null;
+        Node reverseNode = new Node(0,"");
+        //从头到尾遍历原来的链表，每遍历一个节点，就将其取出，放在新的reverseNode链表的最前端
+        while (currentNode != null){
+            //先暂时保存当前节点的下一个节点，因为后面需要使用
+            nextNode = currentNode.next;
+            //将currentNode的下一个节点指向新的链表的最前端
+            currentNode.next = reverseNode.next;
+            //将currentNode连接到新的链表上
+            reverseNode.next = currentNode;
+            //让currentNode后移
+            currentNode = nextNode;
+        }
+        //将head.next指向reverseNode.next，实现单链表的反转
+        head.next = reverseNode.next;
     }
     /**
      * 准备一个带数据的单链表
