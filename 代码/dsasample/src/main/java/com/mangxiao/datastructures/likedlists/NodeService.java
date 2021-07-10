@@ -2,6 +2,8 @@ package com.mangxiao.datastructures.likedlists;
 
 import lombok.extern.slf4j.Slf4j;
 
+import java.util.Stack;
+
 /**
  * @description:
  * 1、对单链表进行节点统计
@@ -24,6 +26,12 @@ public class NodeService {
 
         //单链表反转
         reverse(sll.getNode());
+        log.debug("正序打印:");
+        //正序打印
+        sequencePrint(sll.getNode());
+        log.debug("逆序打印:");
+        //逆序打印
+        reversePrint(sll.getNode());
     }
 
     /**
@@ -97,21 +105,55 @@ public class NodeService {
         //将head.next指向reverseNode.next，实现单链表的反转
         head.next = reverseNode.next;
     }
+
+    /**
+     * 顺序打印单链表
+     * @param head
+     */
+    public static void sequencePrint(Node head){
+        Node currentNode = head.next;
+        for (int i = 0; i < getSize(head); i++){
+            log.debug(currentNode.toString());
+            currentNode = currentNode.next;
+        }
+    }
+
+    /**
+     * 逆序打印单链表
+     * @param head
+     */
+    public static void reversePrint(Node head){
+        if (head.next == null){
+            log.debug("空链表");
+            return;
+        }
+        Stack<Node> stack = new Stack<>();
+        Node currentNode = head.next;
+        //利于栈的先进后出原理实现逆序打印
+        while(currentNode != null){
+            stack.push(currentNode);
+            //指针后移，遍历下一个节点
+            currentNode = currentNode.next;
+        }
+        while (stack.size() > 0){
+            log.debug(stack.pop().toString());
+        }
+    }
     /**
      * 准备一个带数据的单链表
      * @return
      */
     public static SingleLinkedList createSingleLinkedList(){
         Node node0 = new Node(0,"8");
-        Node node1 = new Node(0,"9");
-        Node node2 = new Node(0,"0");
-        Node node3 = new Node(0,"3");
-        Node node4 = new Node(0,"2");
-        Node node5 = new Node(0,"5");
-        Node node6 = new Node(0,"7");
-        Node node7 = new Node(0,"4");
-        Node node8 = new Node(0,"6");
-        Node node9 = new Node(0,"1");
+        Node node1 = new Node(1,"9");
+        Node node2 = new Node(2,"0");
+        Node node3 = new Node(3,"3");
+        Node node4 = new Node(4,"2");
+        Node node5 = new Node(5,"5");
+        Node node6 = new Node(6,"7");
+        Node node7 = new Node(7,"4");
+        Node node8 = new Node(8,"6");
+        Node node9 = new Node(9,"1");
         SingleLinkedList sll = new SingleLinkedList();
         sll.add(node0);
         sll.add(node1);
