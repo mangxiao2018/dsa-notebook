@@ -53,6 +53,23 @@ public class NodesService {
         //形成一个双链表
         temp.next = node;
         node.pre = temp;
-        
+    }
+
+    public void update(Nodes newNode){
+        if (head.next == null){
+            log.debug("空链表");
+            return;
+        }
+
+        Nodes temp = head.next;
+        boolean flag = false;
+        while (true){
+            if (temp == null){
+                break;
+            }
+            if (temp.no == newNode.no){
+
+            }
+        }
     }
 }
