@@ -55,6 +55,10 @@ public class NodesService {
         node.pre = temp;
     }
 
+    /**
+     * 修改某一节点的内容，与单链表思路一样
+     * @param newNode
+     */
     public void update(Nodes newNode){
         if (head.next == null){
             log.debug("空链表");
@@ -68,8 +72,44 @@ public class NodesService {
                 break;
             }
             if (temp.no == newNode.no){
-
+                flag = true;
+                break;
             }
+            temp = temp.next;
+        }
+
+        if (flag){
+            temp.data = newNode.data;
+        }else {
+            log.debug("没有找到要修改的节点%d",newNode.no);
+        }
+    }
+
+    public void del(int no){
+        if (head.next == null){
+            log.debug("链表为空");
+            return;
+        }
+
+        Nodes temp = head.next;
+        boolean flag = false;
+        while (true){
+            if (temp == null){
+                break;
+            }
+            if (temp.no == no){
+                flag = true;
+                break;
+            }
+            temp = temp.next;
+        }
+        if (flag){
+            temp.pre.next = temp.next;
+            if (temp.next != null){
+                temp.pre.next = temp.pre;
+            }
+        }else {
+            log.debug("要删除的节点%d不存在",no);
         }
     }
 }
