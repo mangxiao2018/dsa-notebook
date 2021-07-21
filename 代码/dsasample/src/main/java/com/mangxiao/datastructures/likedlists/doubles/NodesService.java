@@ -85,6 +85,10 @@ public class NodesService {
         }
     }
 
+    /**
+     * 删除指定节点
+     * @param no
+     */
     public void del(int no){
         if (head.next == null){
             log.debug("链表为空");
