@@ -13,7 +13,9 @@ public class Node {
     public Node(){
 
     }
-
+    public Node(int no){
+        this.no = no;
+    }
     public Node(int no, String data){
         this.no = no;
         this.data = data;
@@ -23,6 +25,22 @@ public class Node {
         this.no = no;
         this.data = data;
         this.next = next;
+    }
+
+    public Node getNext() {
+        return next;
+    }
+
+    public void setNext(Node next) {
+        this.next = next;
+    }
+
+    public int getNo() {
+        return no;
+    }
+
+    public void setNo(int no) {
+        this.no = no;
     }
 
     public String toString(){
