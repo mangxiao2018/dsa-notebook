@@ -1,4 +1,4 @@
-package com.mangxiao.datastructures.reversepolishcal;
+package com.mangxiao.datastructures.stack.reversepolishcal;
 
 import java.util.ArrayList;
 import java.util.Collections;
